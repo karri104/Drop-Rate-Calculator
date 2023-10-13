@@ -17,8 +17,20 @@ def bc(n, k, facs):
     return coeff
 
 def calc_single(prob, n, k):
-    chance = (1 - prob[0] / prob[1]) ** n * 100
+    facs = calc_fac(n)
+    chance = bc(n, k, facs) * pmf(prob, n, k) * 100
     return chance
 
 def calc_probabilities(prob, n, k):
-    pass
+    chances = [0, 0, 0]
+    if k == 0:
+        chances[1] = prob[0] / prob[1] ** n
+        chances[2] = 100 - chances[1]
+    else:
+        chance = 0
+        for i in range(0, k - 1):
+            chance += calc_single(prob, n, i)
+        chances[0] = chance
+        chances[1] = calc_single(prob, n, k)
+        chances[2] = 100 - chances[0] - chances[1]
+    return chances
