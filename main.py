@@ -1,7 +1,5 @@
 import math
-from calculations import calc_less as cl
-from calculations import calc_exact as ce
-from calculations import calc_more as cm
+from calculations import calc_probabilities as calc_prob
 
 def main():
 
@@ -28,7 +26,6 @@ def main():
             chance_less_than += binomial_coefficient * probability_mass_function * 100
 
         print(f"Chance to get less than {k} drops is {chance_less_than:.2f}%.")
-
 
         #Chance to get exactly x drops
         binomial_coefficient = math.factorial(n) / (math.factorial(k) * math.factorial(n - k))
