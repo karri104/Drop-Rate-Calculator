@@ -6,14 +6,12 @@ def calc_fac(killcount):
         facs.append(math.factorial(i))
     return facs
 
-def calc_zero(drop_info, killcount):
-    pass
-
 def calc_less(drop_info, killcount, current_drops):
     pass
 
 def calc_exact(drop_info, killcount, current_drops):
-    pass
+    chance = (1 - drop_info[0] / drop_info[1]) ** killcount * 100
+    return chance
 
 def calc_more(drop_info, killcount, current_drops):
     pass

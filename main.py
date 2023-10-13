@@ -1,5 +1,4 @@
 import math
-from calculations import calc_zero as cz
 from calculations import calc_less as cl
 from calculations import calc_exact as ce
 from calculations import calc_more as cm
@@ -14,12 +13,11 @@ def main():
     drop_info = [float(x) for x in drop_info]
 
     if current_drops == 0:
+        probability = ce(drop_info, killcount, current_drops)
         #Chance to get 0 drops
-        chance_0 = (1-drop_info[0]/drop_info[1])**killcount*100
-        print(f"The chance of getting 0 drops is {chance_0:.2f}%.")
-
+        print(f"The chance of getting 0 drops is {probability:.2f}%.")
         #Chance to get more than 0 drops
-        print(f"The chance of getting more than 0 drops is {100-chance_0:.2f}%.")
+        print(f"The chance of getting more than 0 drops is {100-probability:.2f}%.")
 
     else:
         #Chance to get less than x drops
