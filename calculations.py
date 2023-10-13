@@ -13,7 +13,7 @@ def pmf(prob, n, k):
 
 def bc(n, k, facs):
     #Binomial coefficient
-    coeff = facs(n) / (facs(k) * facs(n - k))
+    coeff = facs[n] / (facs[k] * facs[n - k])
     return coeff
 
 def calc_single(prob, n, k):
