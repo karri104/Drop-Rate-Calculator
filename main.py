@@ -12,23 +12,24 @@ def main():
 
     chances = calc_probs(prob, n, k)
 
-    #Chance to get 0 occurences
-    print(f"The chance of getting 0 occurences is {chances[1]:.2f}%.")
+    if k == 0:
+        #Chance to get 0 occurences
+        print(f"The chance of getting 0 occurences is {chances[1]:.2f}%.")
 
-    #Chance to get more than 0 occurences
-    print(f"The chance of getting more than 0 occurences is {chances[2]:.2f}%.")
+        #Chance to get more than 0 occurences
+        print(f"The chance of getting more than 0 occurences is {chances[2]:.2f}%.")
+    else:
+        #Chance to get less than x occurences
+        print(f"Chance to get less than {k} occurences is {chances[0]:.2f}%.")
 
-    #Chance to get less than x occurences
-    print(f"Chance to get less than {k} occurences is {chances[0]:.2f}%.")
+        #Chance to get exactly x occurences
+        print(f"Chance to get exactly {k} occurences is {chances[1]:.2f}%.")
 
-    #Chance to get exactly x occurences
-    print(f"Chance to get exactly {k} occurences is {chances[1]:.2f}%.")
+        #Chance to get more than x occurences
+        print(f"Chance to get more than {k} occurences is {chances[2]:.2f}%.")
 
-    #Chance to get more than x occurences
-    print(f"Chance to get more than {k} occurences is {chances[2]:.2f}%.")
-
-    #Expected amount of occurences
-    print(f"Expected amount of occurences is {n * (prob[0] / prob[1]):.4f}.")
+        #Expected amount of occurences
+        print(f"Expected amount of occurences is {n * (prob[0] / prob[1]):.4f}.")
 
     input("Press enter to exit.\n")
 
