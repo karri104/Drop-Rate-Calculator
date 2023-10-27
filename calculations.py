@@ -1,9 +1,11 @@
 import math
 
 def calc_fac(n):
-    facs = []
-    for i in range(0, n + 1):
-        facs.append(math.factorial(i))
+    # Form a list for factorials as list lookup happens in O(1) instead of O(n!) of factorials
+    # making factorial lookup later a lot faster (in theory)
+    facs = [1]
+    for i in range(1, n + 1):
+        facs.append(facs[i - 1] * i)
     return facs
 
 def pmf(prob, n, k):
